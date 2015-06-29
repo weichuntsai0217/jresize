@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>jresize.js DEMO</title>
+        <style>
+            div, h1{
+                padding: 0;
+                margin: 0;
+            }
+            .heading {
+                text-align: center;
+                margin-top: 50px;
+            }
+            .wrap {
+                width: 680px;
+                height: 360px;
+                border: 2px solid #bbb;
+                margin: 30px auto;
+                overflow: hidden;
+                position: relative;
+            }
+            .demo {
+                width: 250px;
+                height: 166px;
+                position: relative;
+                left: 50%;
+                top: 50%;
+                margin-left: -125px;
+                margin-top:  -83px;
+                border: 1px solid #bbb;
+                text-align: center;
+                line-height: 166px;
+                overflow: hidden;
+            }
+            img.demo {
+                border-style: none;
+                overflow: visible;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="heading"><h1>jresize.js DEMO</h1></div>
+        <div class="wrap">
+            <div class="text demo">Resize or Drag me!</div>
+        </div>
+        <div class="wrap">
+            <img class="image demo" src="photo1_MorganSessions.jpeg">
+        </div>
+        <div class="heading">
+            <h3>
+                This image is by Morgan Sessions  
+                from <a href="https://download.unsplash.com/photo-1421986527537-888d998adb74">unsplash.com</a>
+            </h3>
+        </div>
+        <script type="text/javascript" src="lib/jquery/jquery-1.11.2.min.js"></script>
+        <script type="text/javascript" src="jresize-1.0.0/jresize.js"></script>
+        <script>
+            $(document).on('ready', function(e){
+                $(".text").drag();
+                $(".text").resize()
+                $(".image").one("load", function() {
+                    $(this).drag();
+                    $(this).resize();
+                }).each(function() {
+                    if(this.complete) $(this).load();
+                }); 
+            });
+        </script>
+    </body>
+</html>
