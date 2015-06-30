@@ -10,30 +10,36 @@
                 padding: 0;
                 margin: 0;
             }
+            .wrap {
+                position: relative;
+                width: 900px;
+                height: 500px;
+                border-style: solid;
+                border-width: 1px;
+                border-color: #bbb;
+                margin: 30px auto;
+                overflow: hidden;
+                text-align: center;
+            }
             .heading {
                 text-align: center;
                 margin-top: 50px;
             }
-            .wrap {
-                width: 680px;
-                height: 360px;
-                border: 2px solid #bbb;
-                margin: 30px auto;
-                overflow: hidden;
-                position: relative;
-            }
             .demo {
-                width: 250px;
-                height: 166px;
-                position: relative;
+                width: 620px;
+                height: 414px;
+                position: absolute;
                 left: 50%;
                 top: 50%;
-                margin-left: -125px;
-                margin-top:  -83px;
-                border: 1px solid #bbb;
-                text-align: center;
-                line-height: 166px;
+                margin-left: -310px;
+                margin-top:  -207px;
+                border-style: solid;
+                border-width: 1px;
                 overflow: hidden;
+            }
+            .text-resize.demo {
+                text-align: center;
+                line-height: 100px;
             }
             img.demo {
                 border-style: none;
@@ -43,11 +49,11 @@
     </head>
     <body>
         <div class="heading"><h1>jresize.js DEMO</h1></div>
-        <div class="wrap">
-            <div class="text demo">Resize or Drag me!</div>
+         <div class="wrap">
+            <img class="image-resize demo" src="photo1_MorganSessions.jpeg">
         </div>
         <div class="wrap">
-            <img class="image demo" src="photo1_MorganSessions.jpeg">
+            <div class="text-resize demo">Resize or Drag me!</div>
         </div>
         <div class="heading">
             <h3>
@@ -59,14 +65,14 @@
         <script type="text/javascript" src="jresize-1.0.0/jresize.js"></script>
         <script>
             $(document).on('ready', function(e){
-                $(".text").drag();
-                $(".text").resize()
-                $(".image").one("load", function() {
+                $('.text-resize').drag();
+                $('.text-resize').resize();
+                $('.image-resize').one("load", function() {
                     $(this).drag();
                     $(this).resize();
                 }).each(function() {
                     if(this.complete) $(this).load();
-                }); 
+                });
             });
         </script>
     </body>
